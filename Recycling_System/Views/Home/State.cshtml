@@ -1,0 +1,68 @@
+﻿
+<style>
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: green 2px solid;
+        border-radius: 5px;
+        margin: 50px 300px 50px 300px;
+        padding: 20px;
+    }
+</style>
+<div class="center">
+    @using (Html.BeginForm("State", "Home", FormMethod.Post))
+    {
+        <form>
+            <H3 style="color:green">State Learner</H3>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text ">  </span>
+                </div>
+                <input name="classId" class="form-control" placeholder="Class: ID" type="text">
+            </div>
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        
+                    </span>
+                </div>
+                <input name="grade" class="form-control" placeholder="Grade " type="number">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> </span>
+                </div>
+
+                <input name="hours" class="form-control" placeholder="Hours" type="number">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        
+                    </span>
+                </div>
+                <select class="form-control" name="schoolType">
+                    <option value="None">School Level</option>
+                    <option value="Primary">Primary</option>
+                    <option value="Nursary">Nursary</option>
+                    <option value="Home School">Home School</option>
+                </select>
+            </div> <!-- form-group end.// -->
+
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> </span>
+                </div>
+                <input class="form-control" placeholder="Months of subscription" type="number" name="months">
+            </div>
+            <!-- form-group// -->
+           
+            <input type="submit" class="btn btn-success" value="Submit" />
+        </form>
+    }
+
+
+</div>
+

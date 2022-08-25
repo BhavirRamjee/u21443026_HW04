@@ -1,0 +1,151 @@
+﻿@using u21443026_HW04.Models;
+@model IEnumerable<u21443026_HW04.Models.Program>
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>State Learner</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hours)
+        </th>
+        <th>
+            Offer By State
+        </th>
+        <th>
+            Number of Mentors
+        </th>
+        <th>
+           Pupils
+        </th>
+        <th>
+           Fees
+        </th>
+        <th>
+           Total Fee
+        </th>
+
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (item.GetType() == typeof(State))
+        {
+            State factory = (State)item;
+
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => factory.ClassId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => factory.Grade)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => factory.Hours)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => factory.StateOffer)
+    </td>
+    
+    <td>
+        @Html.DisplayFor(modelItem => factory.Mentors)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => factory.LevelEd)
+    </td>
+    <td>
+        @item.AccumulatedCost()
+    </td>
+
+
+
+    <td>
+    
+        @Html.ActionLink("Delete", "Delete", new { id = item.Studentid })
+    </td>
+</tr>
+
+        }
+    }
+</table>
+
+
+
+<h2>Private School Pupil</h2>
+<!--  Table-->
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hours)
+            </th>
+            <th>
+               School Level
+            </th>
+            <th>
+                Months of Subscription
+            </th>
+            <th>
+                Total Cost
+            </th>
+            <th>
+                Net Fee
+            </th>
+
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            if (item.GetType() == typeof(Private))
+            {
+                Private renewableEnergy = (Private)item;
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => renewableEnergy.ClassId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => renewableEnergy.Grade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => renewableEnergy.Hours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => renewableEnergy.SchoolType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => renewableEnergy.Months)
+        </td>
+        <td>
+            @item.AccumulatedCost();
+        </td>
+        <td>
+            @item.CalculateCost();
+        </td>
+        <td>
+
+        <td>
+          
+            @Html.ActionLink("Delete", "Delete", new { id = item.Studentid })
+        </td>
+    </tr>
+
+            }
+        }
+
+    </table>
